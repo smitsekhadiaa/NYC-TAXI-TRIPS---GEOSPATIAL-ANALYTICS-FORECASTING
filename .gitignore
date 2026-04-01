@@ -1,0 +1,42 @@
+# Data files
+*.csv
+*.parquet
+
+# Python cache/bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+nycprojectenv/
+
+# Build/test/cache outputs
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs/temp files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Spark temporary artifacts
+spark-warehouse/
+metastore_db/
+
+# OS/IDE files
+.DS_Store
+.vscode/
+.idea/
+
+*.pkl

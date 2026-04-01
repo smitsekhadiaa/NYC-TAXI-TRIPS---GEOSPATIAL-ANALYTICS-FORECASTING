@@ -1,0 +1,9 @@
+numpy
+pandas
+pyspark
+pyarrow
+geopandas
+Flask
+SQLAlchemy
+PyMySQL
+streamlit
