@@ -12,7 +12,6 @@ import pandas as pd
 LOGGER_NAME = "nyc_taxi_location_reference"
 RAW_SRC_DATA_DIR = Path(__file__).resolve().parents[1] / "raw_src_data"
 
-# Public module-level references requested by user.
 location_zone_data: pd.DataFrame | None = None
 location_coordinates_data: pd.DataFrame | None = None
 locations_map: Dict[str, pd.DataFrame] = {}
@@ -71,10 +70,7 @@ def build_location_coordinates_data(
     shp_path: Path,
     location_zone_df: pd.DataFrame,
 ) -> pd.DataFrame:
-    # TODO: read shapefile with geopandas
-    # TODO: compute centroids from geometry (EPSG:2263 -> project to WGS84 EPSG:4326)
-    # TODO: merge with location_zone_df on location_id
-    # Placeholder: return empty dataframe with expected schema
+   
     return pd.DataFrame(columns=["location_id", "lat", "long"])
 
 
