@@ -13,7 +13,6 @@ from pyspark.sql import functions as F
 
 LOGGER_NAME = "nyc_taxi_date_reference"
 
-# Ensure sibling processed_data imports work when this file is executed directly.
 PROCESSED_DATA_DIR = Path(__file__).resolve().parents[1] / "processed_data"
 if str(PROCESSED_DATA_DIR) not in sys.path:
     sys.path.insert(0, str(PROCESSED_DATA_DIR))
@@ -22,7 +21,6 @@ from data_processing import initialize_dataframes  # noqa: E402
 
 MONTH_TO_NUMBER = {calendar.month_abbr[i].lower(): i for i in range(1, 13)}
 
-# Public module-level references requested by user.
 date_day_data: Optional[DataFrame] = None
 date_map: Dict[str, DataFrame] = {}
 trip_details_map: Dict[str, DataFrame] = {}
@@ -93,8 +91,6 @@ def build_date_day_data(
     trip_details_map.update(monthly_trip_details_map)
     unique_dates_df = _extract_unique_dates_from_trip_details_map(trip_details_map)
 
-    # TODO: add 'day' column (day of week name) and 'is_weekend' flag
-    # For now just return the unique dates
     return unique_dates_df.select("date").orderBy(F.col("date").asc())
 
 
