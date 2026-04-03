@@ -42,7 +42,6 @@ MONTH_TO_NUMBER = {calendar.month_abbr[i].lower(): i for i in range(1, 13)}
 RAW_SRC_DATA_DIR = Path(__file__).resolve().parents[1] / "raw_src_data"
 MAX_TRIP_DURATION_SECONDS = 24 * 60 * 60
 
-# Public module-level references requested by user.
 mp: Dict[str, DataFrame] = {}
 all_trip_details: Optional[DataFrame] = None
 
@@ -83,8 +82,8 @@ def _configure_java_runtime() -> None:
     """Ensure Spark uses Java from the active Python environment when available."""
     env_prefix = Path(sys.prefix).resolve()
     candidate_java_homes = [
-        env_prefix,  # typical virtualenv/conda layout
-        env_prefix / "lib" / "jvm",  # conda-forge openjdk layout
+        env_prefix,  
+        env_prefix / "lib" / "jvm",  
     ]
 
     for java_home in candidate_java_homes:
@@ -100,7 +99,6 @@ def _configure_java_runtime() -> None:
                 )
             return
 
-    # Fallback to system Java if environment Java is unavailable.
     if which("java") is None:
         raise RuntimeError(
             "Java runtime not found. Install openjdk in nycprojectenv to run PySpark."
@@ -163,7 +161,6 @@ def transform_trip_dataframe(
 ) -> DataFrame:
     """Apply all requested transformations to one monthly Spark DataFrame."""
 
-    # Requirement: ignore rows that contain NULL in any column.
     df = df.dropna(how="any")
 
     pickup_dt_col = _require_column(df, ["tpep_pickup_datetime"], "pickup datetime")
@@ -180,7 +177,6 @@ def transform_trip_dataframe(
     fare_amount_col = _require_column(df, ["fare_amount"], "fare amount")
     tip_amount_col = _require_column(df, ["tip_amount"], "tip amount")
 
-    # --- Derive date/time columns and basic numeric casts ---
     df = (
         df.withColumn("pickup_date", F.to_date(F.col(pickup_dt_col)))
         .withColumn("pickup_time", F.date_format(F.col(pickup_dt_col), "HH:mm:ss"))
@@ -193,20 +189,12 @@ def transform_trip_dataframe(
         .withColumn("tip_amount", F.col(tip_amount_col).cast("double"))
     )
 
-    # TODO: compute extra_amount from extra, tolls, congestion surcharge, airport fee
-    # TODO: compute total_trip_amount from fare + tip + extra_amount
 
     if pickup_location_col != "pickup_location_id":
         df = df.withColumnRenamed(pickup_location_col, "pickup_location_id")
     if dropff_location_col != "dropff_location_id":
         df = df.withColumnRenamed(dropff_location_col, "dropff_location_id")
 
-    # TODO: add data quality filters:
-    # - positive trip distance
-    # - source != destination location id
-    # - valid trip duration (0 to MAX_TRIP_DURATION_SECONDS)
-    # - non-negative fare
-    # - remove duplicate rows
 
     df = _drop_existing_columns(
         df,
@@ -253,11 +241,7 @@ def build_all_trip_details(
     logger: logging.Logger,
     sort_output: bool = True,
 ) -> Optional[DataFrame]:
-    # TODO: combine all monthly dataframes into a single union dataframe
-    # Steps:
-    #   1. Sort keys by month order
-    #   2. Union them using unionByName
-    #   3. Optionally sort the combined result
+    
     logger.warning("build_all_trip_details not yet implemented. Returning None.")
     return None
 
