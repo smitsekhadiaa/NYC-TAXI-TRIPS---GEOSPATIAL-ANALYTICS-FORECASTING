@@ -1,0 +1,89 @@
+{
+  "output_dir": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv",
+  "files": {
+    "trip_details_jan": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/trip_details_jan.csv",
+      "rows": 2708888,
+      "size_bytes": 210274663,
+      "size_human": "200.53 MB"
+    },
+    "trip_details_feb": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/trip_details_feb.csv",
+      "rows": 2559711,
+      "size_bytes": 198810050,
+      "size_human": "189.60 MB"
+    },
+    "trip_details_mar": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/trip_details_mar.csv",
+      "rows": 2989559,
+      "size_bytes": 232589129,
+      "size_human": "221.81 MB"
+    },
+    "trip_details_apr": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/trip_details_apr.csv",
+      "rows": 2980806,
+      "size_bytes": 231920912,
+      "size_human": "221.18 MB"
+    },
+    "trip_details_may": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/trip_details_may.csv",
+      "rows": 3136416,
+      "size_bytes": 244300485,
+      "size_human": "232.98 MB"
+    },
+    "trip_details_jun": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/trip_details_jun.csv",
+      "rows": 2871815,
+      "size_bytes": 223610762,
+      "size_human": "213.25 MB"
+    },
+    "trip_details_jul": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/trip_details_jul.csv",
+      "rows": 2633882,
+      "size_bytes": 204943769,
+      "size_human": "195.45 MB"
+    },
+    "trip_details_aug": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/trip_details_aug.csv",
+      "rows": 2472528,
+      "size_bytes": 192343640,
+      "size_human": "183.43 MB"
+    },
+    "trip_details_sep": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/trip_details_sep.csv",
+      "rows": 2935631,
+      "size_bytes": 228484636,
+      "size_human": "217.90 MB"
+    },
+    "trip_details_oct": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/trip_details_oct.csv",
+      "rows": 3187197,
+      "size_bytes": 248144724,
+      "size_human": "236.65 MB"
+    },
+    "trip_details_nov": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/trip_details_nov.csv",
+      "rows": 2945110,
+      "size_bytes": 229166624,
+      "size_human": "218.55 MB"
+    },
+    "date_day_data": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/date_day_data.csv",
+      "rows": 338,
+      "size_bytes": 7172,
+      "size_human": "7.00 KB"
+    },
+    "location_coordinates_data": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/location_coordinates_data.csv",
+      "rows": 263,
+      "size_bytes": 10701,
+      "size_human": "10.45 KB"
+    },
+    "location_zone_data": {
+      "csv_path": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/processed_csv/location_zone_data.csv",
+      "rows": 263,
+      "size_bytes": 7676,
+      "size_human": "7.50 KB"
+    }
+  }
+}
