@@ -1,6 +1,10 @@
 """HTTP routes for backend service."""
 
 from flask import Blueprint, jsonify, request
+from app.services.anomaly_detection_service import (
+    get_anomaly_detection_summary,
+    train_anomaly_detection_models,
+)
 
 api_blueprint = Blueprint("api", __name__)
 
@@ -25,6 +29,14 @@ def trip_forecast_predict():
 
 
 @api_blueprint.get("/api/anomaly-detection/summary")
-def anomaly_detection_summary():
-    # TODO: implement anomaly detection
-    return jsonify({"message": "Anomaly detection not implemented yet"}), 501
+def anomaly_detection_summary() -> tuple:
+    try:
+        payload = get_anomaly_detection_summary()
+    except FileNotFoundError:
+        current_app.logger.warning("Anomaly summary missing, attempting auto-training")
+        payload = train_anomaly_detection_models()
+    except Exception as exc:
+        current_app.logger.exception("Failed to load anomaly detection summary")
+        return jsonify({"error": f"Internal server error: {exc}"}), 500
+
+    return jsonify(payload), 200
