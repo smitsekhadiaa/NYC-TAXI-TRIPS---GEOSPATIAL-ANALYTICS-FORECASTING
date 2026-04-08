@@ -38,5 +38,3 @@ metastore_db/
 .DS_Store
 .vscode/
 .idea/
-
-*.pkl
