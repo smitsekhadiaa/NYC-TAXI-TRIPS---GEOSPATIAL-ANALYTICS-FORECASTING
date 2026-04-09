@@ -1,0 +1,19 @@
+{
+  "total_transactions_after_filtering": 31168088,
+  "total_rules_generated": 86166,
+  "top_rules_count": 10,
+  "model": "Spark FPGrowth",
+  "params": {
+    "min_support": 0.001,
+    "min_confidence": 0.25
+  },
+  "filters": {
+    "exclude_unknown_source_destination": true,
+    "fare_amount_lt_1000": true,
+    "trip_distance_lt_50": true
+  },
+  "outputs": {
+    "all_rules_csv": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/trip_pattern_artifacts/trip_pattern_rules_all.csv",
+    "top_rules_csv": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/trip_pattern_artifacts/trip_pattern_rules_top10.csv"
+  }
+}
