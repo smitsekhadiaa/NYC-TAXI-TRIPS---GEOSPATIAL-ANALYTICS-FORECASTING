@@ -70,8 +70,35 @@ def build_location_coordinates_data(
     shp_path: Path,
     location_zone_df: pd.DataFrame,
 ) -> pd.DataFrame:
-   
-    return pd.DataFrame(columns=["location_id", "lat", "long"])
+    gdf = gpd.read_file(shp_path)
+
+    if "LocationID" not in gdf.columns:
+        raise ValueError("Shapefile does not contain required 'LocationID' column")
+
+    centroids_projected = gdf.geometry.centroid
+    centroids_wgs84 = gpd.GeoSeries(centroids_projected, crs=gdf.crs).to_crs(epsg=4326)
+
+    coords_df = pd.DataFrame(
+        {
+            "location_id": gdf["LocationID"].astype("int64"),
+            "lat": centroids_wgs84.y,
+            "long": centroids_wgs84.x,
+        }
+    )
+
+    coords_df = (
+        coords_df.drop_duplicates(subset=["location_id"])
+        .sort_values("location_id")
+        .reset_index(drop=True)
+    )
+
+    location_ids_df = location_zone_df[["location_id"]].drop_duplicates()
+    merged_df = (
+        location_ids_df.merge(coords_df, on="location_id", how="left")
+        .sort_values("location_id")
+        .reset_index(drop=True)
+    )
+    return merged_df
 
 
 def initialize_locations_map(
@@ -106,7 +133,6 @@ def get_locations_map(
     base_data_dir: str | Path = RAW_SRC_DATA_DIR,
     force_refresh: bool = False,
 ) -> Dict[str, pd.DataFrame]:
-    """Public accessor for location reference dataframes."""
     return initialize_locations_map(base_data_dir=base_data_dir, force_refresh=force_refresh)
 
 

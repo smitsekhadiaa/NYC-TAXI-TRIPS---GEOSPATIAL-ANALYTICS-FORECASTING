@@ -54,7 +54,7 @@ def get_logger() -> logging.Logger:
     logger.setLevel(logging.INFO)
     handler = logging.StreamHandler()
     handler.setFormatter(
-        logging.Formatting("%(asctime)s | %(levelname)s | %(name)s | %(message)s")
+        logging.Formatter("%(asctime)s | %(levelname)s | %(name)s | %(message)s")
     )
     logger.addHandler(handler)
     logger.propagate = False
@@ -79,11 +79,10 @@ def discover_parquet_files(data_dir: Path) -> list[Path]:
 
 
 def _configure_java_runtime() -> None:
-    """Ensure Spark uses Java from the active Python environment when available."""
     env_prefix = Path(sys.prefix).resolve()
     candidate_java_homes = [
-        env_prefix,  
-        env_prefix / "lib" / "jvm",  
+        env_prefix,
+        env_prefix / "lib" / "jvm",
     ]
 
     for java_home in candidate_java_homes:
@@ -106,7 +105,6 @@ def _configure_java_runtime() -> None:
 
 
 def _configure_python_runtime_for_spark() -> None:
-    """Pin Spark driver/worker Python to the active interpreter."""
     python_executable = sys.executable
     os.environ["PYSPARK_PYTHON"] = python_executable
     os.environ["PYSPARK_DRIVER_PYTHON"] = python_executable
@@ -159,8 +157,6 @@ def transform_trip_dataframe(
     logger: logging.Logger,
     sort_output: bool = True,
 ) -> DataFrame:
-    """Apply all requested transformations to one monthly Spark DataFrame."""
-
     df = df.dropna(how="any")
 
     pickup_dt_col = _require_column(df, ["tpep_pickup_datetime"], "pickup datetime")
@@ -177,6 +173,11 @@ def transform_trip_dataframe(
     fare_amount_col = _require_column(df, ["fare_amount"], "fare amount")
     tip_amount_col = _require_column(df, ["tip_amount"], "tip amount")
 
+    extra_col = _require_column(df, ["extra"], "extra")
+    tolls_col = _require_column(df, ["tolls_amount"], "tolls amount")
+    congestion_col = _require_column(df, ["congestion_surcharge"], "congestion surcharge")
+    airport_fee_col = _require_column(df, ["airport_fee", "Airport_fee"], "airport fee")
+
     df = (
         df.withColumn("pickup_date", F.to_date(F.col(pickup_dt_col)))
         .withColumn("pickup_time", F.date_format(F.col(pickup_dt_col), "HH:mm:ss"))
@@ -187,14 +188,39 @@ def transform_trip_dataframe(
         .withColumn("trip_distance", F.col(trip_distance_col).cast("double"))
         .withColumn("fare_amount", F.col(fare_amount_col).cast("double"))
         .withColumn("tip_amount", F.col(tip_amount_col).cast("double"))
+        .withColumn(
+            "extra_amount",
+            F.col(extra_col)
+            + F.col(tolls_col)
+            + F.col(congestion_col)
+            + F.col(airport_fee_col),
+        )
+        .withColumn(
+            "total_trip_amount",
+            F.col(fare_amount_col) + F.col(tip_amount_col) + F.col("extra_amount"),
+        )
     )
-
 
     if pickup_location_col != "pickup_location_id":
         df = df.withColumnRenamed(pickup_location_col, "pickup_location_id")
     if dropff_location_col != "dropff_location_id":
         df = df.withColumnRenamed(dropff_location_col, "dropff_location_id")
 
+    df = (
+        df.filter(
+            (F.col("trip_distance") > 0)
+            & (F.col("pickup_location_id") != F.col("dropff_location_id"))
+            & F.col("_pickup_ts").isNotNull()
+            & F.col("_dropff_ts").isNotNull()
+            & (F.col("_dropff_ts") >= F.col("_pickup_ts"))
+            & (
+                (F.col("_dropff_ts").cast("long") - F.col("_pickup_ts").cast("long"))
+                <= F.lit(MAX_TRIP_DURATION_SECONDS)
+            )
+            & (F.col("fare_amount") >= 0)
+        )
+        .dropDuplicates()
+    )
 
     df = _drop_existing_columns(
         df,
@@ -241,9 +267,25 @@ def build_all_trip_details(
     logger: logging.Logger,
     sort_output: bool = True,
 ) -> Optional[DataFrame]:
-    
-    logger.warning("build_all_trip_details not yet implemented. Returning None.")
-    return None
+    if not month_map:
+        logger.warning("Month map is empty. Skipping combined dataframe creation.")
+        return None
+
+    try:
+        ordered_keys = sorted(month_map.keys(), key=lambda key: MONTH_TO_NUMBER.get(key, 99))
+        combined_df = month_map[ordered_keys[0]]
+
+        for month_key in ordered_keys[1:]:
+            combined_df = combined_df.unionByName(month_map[month_key])
+
+        if sort_output:
+            return combined_df.orderBy(*SORT_COLUMNS)
+        return combined_df
+    except Exception:
+        logger.exception(
+            "Failed to build all_trip_details due to runtime/memory constraints. Returning None."
+        )
+        return None
 
 
 def build_processed_trip_data(
@@ -306,7 +348,6 @@ def get_processed_dataframes(
     force_refresh: bool = False,
     sort_output: bool = True,
 ) -> Tuple[Dict[str, DataFrame], Optional[DataFrame]]:
-    """Public accessor for processed trip dataframe map and combined dataframe."""
     return initialize_dataframes(
         data_dir=data_dir,
         spark=spark,

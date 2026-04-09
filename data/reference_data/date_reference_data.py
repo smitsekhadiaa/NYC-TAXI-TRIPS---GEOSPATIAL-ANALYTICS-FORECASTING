@@ -42,7 +42,6 @@ def get_logger() -> logging.Logger:
 
 
 def _build_trip_details_map(month_map: Dict[str, DataFrame]) -> Dict[str, DataFrame]:
-    """Convert {'jan': df} -> {'trip_details_jan': df}."""
     return {f"trip_details_{month_key}": df for month_key, df in month_map.items()}
 
 
@@ -91,7 +90,15 @@ def build_date_day_data(
     trip_details_map.update(monthly_trip_details_map)
     unique_dates_df = _extract_unique_dates_from_trip_details_map(trip_details_map)
 
-    return unique_dates_df.select("date").orderBy(F.col("date").asc())
+    return (
+        unique_dates_df.withColumn("day", F.date_format(F.col("date"), "EEEE"))
+        .withColumn(
+            "is_weekend",
+            F.when(F.dayofweek(F.col("date")).isin([1, 7]), F.lit(1)).otherwise(F.lit(0)),
+        )
+        .select("date", "day", "is_weekend")
+        .orderBy(F.col("date").asc())
+    )
 
 
 def initialize_date_map(
@@ -124,7 +131,6 @@ def get_date_map(
     force_refresh: bool = False,
     sort_output: bool = False,
 ) -> Dict[str, DataFrame]:
-    """Public accessor for date reference dataframes."""
     return initialize_date_map(
         spark=spark,
         monthly_trip_details_map=monthly_trip_details_map,
