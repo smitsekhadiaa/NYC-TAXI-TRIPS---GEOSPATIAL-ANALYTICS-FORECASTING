@@ -74,3 +74,6 @@ def register_cli_commands(app: Flask) -> None:
         click.echo("Trip pattern rule mining completed.")
         click.echo(f"- total_transactions_after_filtering: {summary['total_transactions_after_filtering']}")
         click.echo(f"- total_rules_generated: {summary['total_rules_generated']}")
+        click.echo(f"- top_rules_count: {summary['top_rules_count']}")
+        click.echo(f"- all_rules_csv: {summary['outputs']['all_rules_csv']}")
+        click.echo(f"- top_rules_csv: {summary['outputs']['top_rules_csv']}")
