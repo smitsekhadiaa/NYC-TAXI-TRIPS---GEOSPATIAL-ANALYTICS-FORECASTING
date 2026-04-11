@@ -1,24 +1,53 @@
 """HTTP routes for backend service."""
 
-from flask import Blueprint, jsonify, request
+from __future__ import annotations
+
+from datetime import date
+
+from flask import Blueprint, current_app, jsonify, request
+
+from app.config import load_settings
 from app.services.anomaly_detection_service import (
     get_anomaly_detection_summary,
     train_anomaly_detection_models,
+)
+from app.services.clustering_data_service import get_clustering_map_payload
+from app.services.mysql_loader import load_all_dataframes_to_mysql
+from app.services.trip_forecasting_service import (
+    get_forecasting_metadata,
+    predict_fare_and_eta,
 )
 
 api_blueprint = Blueprint("api", __name__)
 
 
 @api_blueprint.get("/health")
-def health():
+def health() -> tuple:
     return jsonify({"status": "ok"}), 200
 
 
-@api_blueprint.get("/api/clustering/<segment>")
-def get_clustering(segment):
-    # TODO: implement clustering logic
-    return jsonify({"message": f"Clustering for {segment} not implemented yet"}), 501
+@api_blueprint.post("/api/load-mysql")
+def load_mysql() -> tuple:
+    settings = load_settings()
+    current_app.logger.info("Starting MySQL data load")
+    summary = load_all_dataframes_to_mysql(settings)
+    return jsonify({"database": settings.mysql_database, "tables_loaded": summary}), 200
 
+
+@api_blueprint.get("/api/clustering/<segment>")
+def get_clustering(segment: str) -> tuple:
+    max_points = request.args.get("max_points", default=25_000, type=int)
+    try:
+        payload = get_clustering_map_payload(segment=segment, max_points=max_points)
+    except FileNotFoundError as exc:
+        return jsonify({"error": str(exc)}), 404
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+    except Exception as exc:  # pragma: no cover
+        current_app.logger.exception("Failed to build clustering payload")
+        return jsonify({"error": f"Internal server error: {exc}"}), 500
+
+    return jsonify(payload), 200
 
 
 @api_blueprint.get("/api/trip-forecast/metadata")
@@ -66,15 +95,18 @@ def trip_forecast_predict() -> tuple:
     return jsonify(result), 200
 
 
-
 @api_blueprint.get("/api/anomaly-detection/summary")
 def anomaly_detection_summary() -> tuple:
     try:
         payload = get_anomaly_detection_summary()
-    except FileNotFoundError:
+    except FileNotFoundError as exc:
         current_app.logger.warning("Anomaly summary missing, attempting auto-training")
-        payload = train_anomaly_detection_models()
-    except Exception as exc:
+        try:
+            payload = train_anomaly_detection_models()
+        except Exception as train_exc:  # pragma: no cover
+            current_app.logger.exception("Auto-training anomaly models failed")
+            return jsonify({"error": f"{exc}. Auto-training failed: {train_exc}"}), 404
+    except Exception as exc:  # pragma: no cover
         current_app.logger.exception("Failed to load anomaly detection summary")
         return jsonify({"error": f"Internal server error: {exc}"}), 500
 
