@@ -1,0 +1,166 @@
+{
+  "extreme_speed": {
+    "model": "IsolationForest",
+    "target_anomaly_rate": 0.01,
+    "selected_score_quantile": 0.98,
+    "selected_speed_quantile": 0.99,
+    "global_speed_score_threshold": 0.009145576803314669,
+    "global_speed_mph_threshold": 34.82278219657947,
+    "per_hour_thresholds": [
+      {
+        "pickup_hour": 0,
+        "hour_label": "00:00",
+        "speed_score_threshold": 0.045634094263146296,
+        "speed_mph_threshold": 41.88594877965497
+      },
+      {
+        "pickup_hour": 1,
+        "hour_label": "01:00",
+        "speed_score_threshold": 0.04535413191619081,
+        "speed_mph_threshold": 42.38492845633996
+      },
+      {
+        "pickup_hour": 2,
+        "hour_label": "02:00",
+        "speed_score_threshold": 0.05141957635646677,
+        "speed_mph_threshold": 39.68074488545942
+      },
+      {
+        "pickup_hour": 3,
+        "hour_label": "03:00",
+        "speed_score_threshold": 0.07287969190373508,
+        "speed_mph_threshold": 43.01702399137389
+      },
+      {
+        "pickup_hour": 4,
+        "hour_label": "04:00",
+        "speed_score_threshold": 0.07513900517312645,
+        "speed_mph_threshold": 45.99027686559977
+      },
+      {
+        "pickup_hour": 5,
+        "hour_label": "05:00",
+        "speed_score_threshold": 0.07229151927864812,
+        "speed_mph_threshold": 45.437502995248906
+      },
+      {
+        "pickup_hour": 6,
+        "hour_label": "06:00",
+        "speed_score_threshold": 0.05368857485112369,
+        "speed_mph_threshold": 42.805404270762295
+      },
+      {
+        "pickup_hour": 7,
+        "hour_label": "07:00",
+        "speed_score_threshold": 0.025143707482356985,
+        "speed_mph_threshold": 38.54252235438527
+      },
+      {
+        "pickup_hour": 8,
+        "hour_label": "08:00",
+        "speed_score_threshold": 0.011202700963746473,
+        "speed_mph_threshold": 35.781674853843285
+      },
+      {
+        "pickup_hour": 9,
+        "hour_label": "09:00",
+        "speed_score_threshold": 0.005771133176282687,
+        "speed_mph_threshold": 35.563302727518135
+      },
+      {
+        "pickup_hour": 10,
+        "hour_label": "10:00",
+        "speed_score_threshold": -0.005196886606018433,
+        "speed_mph_threshold": 33.1250241734712
+      },
+      {
+        "pickup_hour": 11,
+        "hour_label": "11:00",
+        "speed_score_threshold": -0.009991665506891857,
+        "speed_mph_threshold": 31.898045265588888
+      },
+      {
+        "pickup_hour": 12,
+        "hour_label": "12:00",
+        "speed_score_threshold": -0.011009146819388053,
+        "speed_mph_threshold": 30.92189264635856
+      },
+      {
+        "pickup_hour": 13,
+        "hour_label": "13:00",
+        "speed_score_threshold": -0.016560789947868297,
+        "speed_mph_threshold": 29.75209307933444
+      },
+      {
+        "pickup_hour": 14,
+        "hour_label": "14:00",
+        "speed_score_threshold": -0.016437002377789157,
+        "speed_mph_threshold": 27.422175007417174
+      },
+      {
+        "pickup_hour": 15,
+        "hour_label": "15:00",
+        "speed_score_threshold": -0.014558327448505406,
+        "speed_mph_threshold": 25.92640900403483
+      },
+      {
+        "pickup_hour": 16,
+        "hour_label": "16:00",
+        "speed_score_threshold": -0.015555036838386866,
+        "speed_mph_threshold": 25.718105342932926
+      },
+      {
+        "pickup_hour": 17,
+        "hour_label": "17:00",
+        "speed_score_threshold": -0.014937386841634101,
+        "speed_mph_threshold": 25.835284824107205
+      },
+      {
+        "pickup_hour": 18,
+        "hour_label": "18:00",
+        "speed_score_threshold": -0.016529749847601426,
+        "speed_mph_threshold": 27.978836735930056
+      },
+      {
+        "pickup_hour": 19,
+        "hour_label": "19:00",
+        "speed_score_threshold": -0.015813809159255024,
+        "speed_mph_threshold": 32.19538498049229
+      },
+      {
+        "pickup_hour": 20,
+        "hour_label": "20:00",
+        "speed_score_threshold": -0.011615993264863627,
+        "speed_mph_threshold": 34.783615139724084
+      },
+      {
+        "pickup_hour": 21,
+        "hour_label": "21:00",
+        "speed_score_threshold": -0.009039550038227708,
+        "speed_mph_threshold": 36.04199652542477
+      },
+      {
+        "pickup_hour": 22,
+        "hour_label": "22:00",
+        "speed_score_threshold": 0.01004147586376737,
+        "speed_mph_threshold": 36.62772871537297
+      },
+      {
+        "pickup_hour": 23,
+        "hour_label": "23:00",
+        "speed_score_threshold": 0.037381124570361135,
+        "speed_mph_threshold": 40.35494476411472
+      }
+    ]
+  },
+  "fare_outlier": {
+    "model": "IsolationForest",
+    "target_anomaly_rate": 0.01,
+    "selected_score_quantile": 0.98,
+    "score_threshold": -0.02110618855780361,
+    "iqr_multiplier": 1.5,
+    "selected_ratio_quantile": 0.97,
+    "ratio_threshold": 1.7538461538461538,
+    "fare_upper_formula": "context_median_fare + iqr_multiplier * context_iqr_fare"
+  }
+}

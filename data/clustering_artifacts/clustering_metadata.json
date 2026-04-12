@@ -1,0 +1,93 @@
+{
+  "selected_k": 5,
+  "segments": [
+    "morning",
+    "afternoon",
+    "evening",
+    "night",
+    "all"
+  ],
+  "point_counts": {
+    "morning": 11005233,
+    "afternoon": 14818305,
+    "evening": 16951495,
+    "night": 12956204,
+    "all": 62598468
+  },
+  "axis_bounds": {
+    "x_long_min": -74.24353546082052,
+    "x_long_max": -73.70102542854559,
+    "y_lat_min": 40.51549110546785,
+    "y_lat_max": 40.90952838046226
+  },
+  "config": {
+    "chunk_size": 300000,
+    "batch_size": 8192,
+    "n_init": 12,
+    "max_iter": 220,
+    "reassignment_ratio": 0.0,
+    "tuning_sample_size": 250000,
+    "silhouette_sample_size": 20000,
+    "plotting_sample_size": 70000,
+    "plot_colors": [
+      "#E53935",
+      "#43A047",
+      "#FDD835",
+      "#1E88E5",
+      "#8E24AA"
+    ],
+    "random_state": 42
+  },
+  "refinement_summary": {
+    "morning": {
+      "cluster_counts": [
+        5276975,
+        315990,
+        3451831,
+        1502777,
+        457660
+      ],
+      "empty_clusters": 0
+    },
+    "afternoon": {
+      "cluster_counts": [
+        3453499,
+        605831,
+        5367723,
+        569481,
+        4821771
+      ],
+      "empty_clusters": 0
+    },
+    "evening": {
+      "cluster_counts": [
+        4647755,
+        644064,
+        4075522,
+        493265,
+        7090889
+      ],
+      "empty_clusters": 0
+    },
+    "night": {
+      "cluster_counts": [
+        3911115,
+        547321,
+        445442,
+        2938502,
+        5113824
+      ],
+      "empty_clusters": 0
+    },
+    "all": {
+      "cluster_counts": [
+        29304872,
+        2483893,
+        17024556,
+        11541405,
+        2243742
+      ],
+      "empty_clusters": 0
+    }
+  }
+}

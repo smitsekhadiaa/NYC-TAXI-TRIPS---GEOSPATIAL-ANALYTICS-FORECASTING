@@ -1,0 +1,45 @@
+{
+  "models": {
+    "fare_model": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/forecasting_artifacts/models/fare_model.pkl",
+    "eta_model": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/forecasting_artifacts/models/eta_model.pkl",
+    "feature_bundle": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/forecasting_artifacts/models/feature_bundle.pkl"
+  },
+  "outputs": {
+    "test_predictions_csv": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/forecasting_artifacts/outputs/test_predictions_oct_nov.csv",
+    "test_metrics_json": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/forecasting_artifacts/metrics/test_metrics.json"
+  },
+  "serving_window": {
+    "start_date": "2025-10-01",
+    "end_date": "2025-12-31",
+    "hour_range_inclusive": [
+      0,
+      24
+    ]
+  },
+  "split": {
+    "train_months": [
+      1,
+      9
+    ],
+    "test_months": [
+      10,
+      11
+    ]
+  },
+  "sample_sizes": {
+    "train_rows": 4479265,
+    "test_rows": 1087784,
+    "train_weighted_rows": 24944369,
+    "test_weighted_rows": 6008303
+  },
+  "fare_model_test_metrics": {
+    "mae": 3.389468081282248,
+    "rmse": 7.805219399215454,
+    "r2": 0.8406464791092144
+  },
+  "eta_model_test_metrics": {
+    "mae": 6.0474402141020205,
+    "rmse": 23.422824440321477,
+    "r2": 0.3625120117823931
+  }
+}

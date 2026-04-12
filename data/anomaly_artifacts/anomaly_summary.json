@@ -1,0 +1,1015 @@
+{
+  "generated_at": "2026-03-08T16:26:33Z",
+  "models": {
+    "extreme_speed_model": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/anomaly_artifacts/models/extreme_speed_isolation_forest.pkl",
+    "fare_outlier_model": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/anomaly_artifacts/models/fare_outlier_isolation_forest.pkl",
+    "feature_bundle": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/anomaly_artifacts/models/anomaly_feature_bundle.pkl"
+  },
+  "thresholds": {
+    "extreme_speed": {
+      "model": "IsolationForest",
+      "target_anomaly_rate": 0.01,
+      "selected_score_quantile": 0.98,
+      "selected_speed_quantile": 0.99,
+      "global_speed_score_threshold": 0.009145576803314669,
+      "global_speed_mph_threshold": 34.82278219657947,
+      "per_hour_thresholds": [
+        {
+          "pickup_hour": 0,
+          "hour_label": "00:00",
+          "speed_score_threshold": 0.045634094263146296,
+          "speed_mph_threshold": 41.88594877965497
+        },
+        {
+          "pickup_hour": 1,
+          "hour_label": "01:00",
+          "speed_score_threshold": 0.04535413191619081,
+          "speed_mph_threshold": 42.38492845633996
+        },
+        {
+          "pickup_hour": 2,
+          "hour_label": "02:00",
+          "speed_score_threshold": 0.05141957635646677,
+          "speed_mph_threshold": 39.68074488545942
+        },
+        {
+          "pickup_hour": 3,
+          "hour_label": "03:00",
+          "speed_score_threshold": 0.07287969190373508,
+          "speed_mph_threshold": 43.01702399137389
+        },
+        {
+          "pickup_hour": 4,
+          "hour_label": "04:00",
+          "speed_score_threshold": 0.07513900517312645,
+          "speed_mph_threshold": 45.99027686559977
+        },
+        {
+          "pickup_hour": 5,
+          "hour_label": "05:00",
+          "speed_score_threshold": 0.07229151927864812,
+          "speed_mph_threshold": 45.437502995248906
+        },
+        {
+          "pickup_hour": 6,
+          "hour_label": "06:00",
+          "speed_score_threshold": 0.05368857485112369,
+          "speed_mph_threshold": 42.805404270762295
+        },
+        {
+          "pickup_hour": 7,
+          "hour_label": "07:00",
+          "speed_score_threshold": 0.025143707482356985,
+          "speed_mph_threshold": 38.54252235438527
+        },
+        {
+          "pickup_hour": 8,
+          "hour_label": "08:00",
+          "speed_score_threshold": 0.011202700963746473,
+          "speed_mph_threshold": 35.781674853843285
+        },
+        {
+          "pickup_hour": 9,
+          "hour_label": "09:00",
+          "speed_score_threshold": 0.005771133176282687,
+          "speed_mph_threshold": 35.563302727518135
+        },
+        {
+          "pickup_hour": 10,
+          "hour_label": "10:00",
+          "speed_score_threshold": -0.005196886606018433,
+          "speed_mph_threshold": 33.1250241734712
+        },
+        {
+          "pickup_hour": 11,
+          "hour_label": "11:00",
+          "speed_score_threshold": -0.009991665506891857,
+          "speed_mph_threshold": 31.898045265588888
+        },
+        {
+          "pickup_hour": 12,
+          "hour_label": "12:00",
+          "speed_score_threshold": -0.011009146819388053,
+          "speed_mph_threshold": 30.92189264635856
+        },
+        {
+          "pickup_hour": 13,
+          "hour_label": "13:00",
+          "speed_score_threshold": -0.016560789947868297,
+          "speed_mph_threshold": 29.75209307933444
+        },
+        {
+          "pickup_hour": 14,
+          "hour_label": "14:00",
+          "speed_score_threshold": -0.016437002377789157,
+          "speed_mph_threshold": 27.422175007417174
+        },
+        {
+          "pickup_hour": 15,
+          "hour_label": "15:00",
+          "speed_score_threshold": -0.014558327448505406,
+          "speed_mph_threshold": 25.92640900403483
+        },
+        {
+          "pickup_hour": 16,
+          "hour_label": "16:00",
+          "speed_score_threshold": -0.015555036838386866,
+          "speed_mph_threshold": 25.718105342932926
+        },
+        {
+          "pickup_hour": 17,
+          "hour_label": "17:00",
+          "speed_score_threshold": -0.014937386841634101,
+          "speed_mph_threshold": 25.835284824107205
+        },
+        {
+          "pickup_hour": 18,
+          "hour_label": "18:00",
+          "speed_score_threshold": -0.016529749847601426,
+          "speed_mph_threshold": 27.978836735930056
+        },
+        {
+          "pickup_hour": 19,
+          "hour_label": "19:00",
+          "speed_score_threshold": -0.015813809159255024,
+          "speed_mph_threshold": 32.19538498049229
+        },
+        {
+          "pickup_hour": 20,
+          "hour_label": "20:00",
+          "speed_score_threshold": -0.011615993264863627,
+          "speed_mph_threshold": 34.783615139724084
+        },
+        {
+          "pickup_hour": 21,
+          "hour_label": "21:00",
+          "speed_score_threshold": -0.009039550038227708,
+          "speed_mph_threshold": 36.04199652542477
+        },
+        {
+          "pickup_hour": 22,
+          "hour_label": "22:00",
+          "speed_score_threshold": 0.01004147586376737,
+          "speed_mph_threshold": 36.62772871537297
+        },
+        {
+          "pickup_hour": 23,
+          "hour_label": "23:00",
+          "speed_score_threshold": 0.037381124570361135,
+          "speed_mph_threshold": 40.35494476411472
+        }
+      ]
+    },
+    "fare_outlier": {
+      "model": "IsolationForest",
+      "target_anomaly_rate": 0.01,
+      "selected_score_quantile": 0.98,
+      "score_threshold": -0.02110618855780361,
+      "iqr_multiplier": 1.5,
+      "selected_ratio_quantile": 0.97,
+      "ratio_threshold": 1.7538461538461538,
+      "fare_upper_formula": "context_median_fare + iqr_multiplier * context_iqr_fare"
+    }
+  },
+  "anomalies": {
+    "extreme_speed": {
+      "total_anomaly_records": 167606,
+      "anomaly_percentage": 0.5414,
+      "hourly_variation": [
+        {
+          "pickup_hour": 0,
+          "hour_label": "00:00",
+          "total_records": 805456,
+          "anomaly_count": 4905,
+          "anomaly_percentage": 0.609
+        },
+        {
+          "pickup_hour": 1,
+          "hour_label": "01:00",
+          "total_records": 521696,
+          "anomaly_count": 2635,
+          "anomaly_percentage": 0.5051
+        },
+        {
+          "pickup_hour": 2,
+          "hour_label": "02:00",
+          "total_records": 332201,
+          "anomaly_count": 2501,
+          "anomaly_percentage": 0.7529
+        },
+        {
+          "pickup_hour": 3,
+          "hour_label": "03:00",
+          "total_records": 213932,
+          "anomaly_count": 870,
+          "anomaly_percentage": 0.4067
+        },
+        {
+          "pickup_hour": 4,
+          "hour_label": "04:00",
+          "total_records": 145176,
+          "anomaly_count": 702,
+          "anomaly_percentage": 0.4836
+        },
+        {
+          "pickup_hour": 5,
+          "hour_label": "05:00",
+          "total_records": 178793,
+          "anomaly_count": 760,
+          "anomaly_percentage": 0.4251
+        },
+        {
+          "pickup_hour": 6,
+          "hour_label": "06:00",
+          "total_records": 400215,
+          "anomaly_count": 1509,
+          "anomaly_percentage": 0.377
+        },
+        {
+          "pickup_hour": 7,
+          "hour_label": "07:00",
+          "total_records": 801606,
+          "anomaly_count": 4321,
+          "anomaly_percentage": 0.539
+        },
+        {
+          "pickup_hour": 8,
+          "hour_label": "08:00",
+          "total_records": 1113446,
+          "anomaly_count": 6362,
+          "anomaly_percentage": 0.5714
+        },
+        {
+          "pickup_hour": 9,
+          "hour_label": "09:00",
+          "total_records": 1311215,
+          "anomaly_count": 6563,
+          "anomaly_percentage": 0.5005
+        },
+        {
+          "pickup_hour": 10,
+          "hour_label": "10:00",
+          "total_records": 1449550,
+          "anomaly_count": 8867,
+          "anomaly_percentage": 0.6117
+        },
+        {
+          "pickup_hour": 11,
+          "hour_label": "11:00",
+          "total_records": 1561872,
+          "anomaly_count": 8283,
+          "anomaly_percentage": 0.5303
+        },
+        {
+          "pickup_hour": 12,
+          "hour_label": "12:00",
+          "total_records": 1692793,
+          "anomaly_count": 9985,
+          "anomaly_percentage": 0.5899
+        },
+        {
+          "pickup_hour": 13,
+          "hour_label": "13:00",
+          "total_records": 1770164,
+          "anomaly_count": 9640,
+          "anomaly_percentage": 0.5446
+        },
+        {
+          "pickup_hour": 14,
+          "hour_label": "14:00",
+          "total_records": 1899789,
+          "anomaly_count": 10125,
+          "anomaly_percentage": 0.533
+        },
+        {
+          "pickup_hour": 15,
+          "hour_label": "15:00",
+          "total_records": 1964871,
+          "anomaly_count": 10350,
+          "anomaly_percentage": 0.5268
+        },
+        {
+          "pickup_hour": 16,
+          "hour_label": "16:00",
+          "total_records": 2015097,
+          "anomaly_count": 9693,
+          "anomaly_percentage": 0.481
+        },
+        {
+          "pickup_hour": 17,
+          "hour_label": "17:00",
+          "total_records": 2177789,
+          "anomaly_count": 11706,
+          "anomaly_percentage": 0.5375
+        },
+        {
+          "pickup_hour": 18,
+          "hour_label": "18:00",
+          "total_records": 2225495,
+          "anomaly_count": 12248,
+          "anomaly_percentage": 0.5503
+        },
+        {
+          "pickup_hour": 19,
+          "hour_label": "19:00",
+          "total_records": 1962608,
+          "anomaly_count": 9930,
+          "anomaly_percentage": 0.506
+        },
+        {
+          "pickup_hour": 20,
+          "hour_label": "20:00",
+          "total_records": 1808451,
+          "anomaly_count": 8963,
+          "anomaly_percentage": 0.4956
+        },
+        {
+          "pickup_hour": 21,
+          "hour_label": "21:00",
+          "total_records": 1824773,
+          "anomaly_count": 9475,
+          "anomaly_percentage": 0.5192
+        },
+        {
+          "pickup_hour": 22,
+          "hour_label": "22:00",
+          "total_records": 1608798,
+          "anomaly_count": 10144,
+          "anomaly_percentage": 0.6305
+        },
+        {
+          "pickup_hour": 23,
+          "hour_label": "23:00",
+          "total_records": 1172059,
+          "anomaly_count": 7069,
+          "anomaly_percentage": 0.6031
+        }
+      ],
+      "top_od_pairs": [
+        {
+          "source_id": 132,
+          "destination_id": 265,
+          "origin": "JFK Airport (Queens)",
+          "destination": "Unknown (Unknown)",
+          "anomaly_frequency": 22368
+        },
+        {
+          "source_id": 138,
+          "destination_id": 265,
+          "origin": "LaGuardia Airport (Queens)",
+          "destination": "Unknown (Unknown)",
+          "anomaly_frequency": 7275
+        },
+        {
+          "source_id": 230,
+          "destination_id": 1,
+          "origin": "Times Sq/Theatre District (Manhattan)",
+          "destination": "Newark Airport (EWR)",
+          "anomaly_frequency": 3458
+        },
+        {
+          "source_id": 132,
+          "destination_id": 181,
+          "origin": "JFK Airport (Queens)",
+          "destination": "Park Slope (Brooklyn)",
+          "anomaly_frequency": 3105
+        },
+        {
+          "source_id": 216,
+          "destination_id": 132,
+          "origin": "South Ozone Park (Queens)",
+          "destination": "JFK Airport (Queens)",
+          "anomaly_frequency": 2977
+        },
+        {
+          "source_id": 129,
+          "destination_id": 138,
+          "origin": "Jackson Heights (Queens)",
+          "destination": "LaGuardia Airport (Queens)",
+          "anomaly_frequency": 2374
+        },
+        {
+          "source_id": 132,
+          "destination_id": 40,
+          "origin": "JFK Airport (Queens)",
+          "destination": "Carroll Gardens (Brooklyn)",
+          "anomaly_frequency": 2181
+        },
+        {
+          "source_id": 132,
+          "destination_id": 93,
+          "origin": "JFK Airport (Queens)",
+          "destination": "Flushing Meadows-Corona Park (Queens)",
+          "anomaly_frequency": 2028
+        },
+        {
+          "source_id": 132,
+          "destination_id": 261,
+          "origin": "JFK Airport (Queens)",
+          "destination": "World Trade Center (Manhattan)",
+          "anomaly_frequency": 1819
+        },
+        {
+          "source_id": 132,
+          "destination_id": 14,
+          "origin": "JFK Airport (Queens)",
+          "destination": "Bay Ridge (Brooklyn)",
+          "anomaly_frequency": 1789
+        }
+      ],
+      "top_10_records": [
+        {
+          "pickup_timestamp": "2025-05-23 17:56:24",
+          "pickup_hour": 17,
+          "source_id": 114,
+          "destination_id": 161,
+          "origin_label": "Greenwich Village South (Manhattan)",
+          "destination_label": "Midtown Center (Manhattan)",
+          "fare_amount": 593.39,
+          "trip_distance_miles": 47137.31,
+          "eta_minutes": 18.8,
+          "speed_mph": 150438.22,
+          "fare_to_context_median_ratio": 29.969191919191918,
+          "context_median_fare": 19.8,
+          "context_iqr_fare": 3.6750000000000007,
+          "anomaly_score": 0.359054,
+          "anomaly_type": "extreme_speed"
+        },
+        {
+          "pickup_timestamp": "2025-05-04 19:49:54",
+          "pickup_hour": 19,
+          "source_id": 162,
+          "destination_id": 163,
+          "origin_label": "Midtown East (Manhattan)",
+          "destination_label": "Midtown North (Manhattan)",
+          "fare_amount": 654.87,
+          "trip_distance_miles": 50486.79,
+          "eta_minutes": 5.8,
+          "speed_mph": 522277.14,
+          "fare_to_context_median_ratio": 90.95416666666667,
+          "context_median_fare": 7.2,
+          "context_iqr_fare": 2.799999999999999,
+          "anomaly_score": 0.355313,
+          "anomaly_type": "extreme_speed"
+        },
+        {
+          "pickup_timestamp": "2025-05-09 22:44:41",
+          "pickup_hour": 22,
+          "source_id": 114,
+          "destination_id": 48,
+          "origin_label": "Greenwich Village South (Manhattan)",
+          "destination_label": "Clinton East (Manhattan)",
+          "fare_amount": 593.43,
+          "trip_distance_miles": 38525.83,
+          "eta_minutes": 18.13,
+          "speed_mph": 127475.17,
+          "fare_to_context_median_ratio": 34.90764705882353,
+          "context_median_fare": 17.0,
+          "context_iqr_fare": 5.075000000000001,
+          "anomaly_score": 0.355021,
+          "anomaly_type": "extreme_speed"
+        },
+        {
+          "pickup_timestamp": "2025-05-24 19:53:12",
+          "pickup_hour": 19,
+          "source_id": 144,
+          "destination_id": 97,
+          "origin_label": "Little Italy/NoLiTa (Manhattan)",
+          "destination_label": "Fort Greene (Brooklyn)",
+          "fare_amount": 654.87,
+          "trip_distance_miles": 41779.91,
+          "eta_minutes": 23.33,
+          "speed_mph": 107434.05,
+          "fare_to_context_median_ratio": 33.07424242424242,
+          "context_median_fare": 19.8,
+          "context_iqr_fare": 0.0,
+          "anomaly_score": 0.353267,
+          "anomaly_type": "extreme_speed"
+        },
+        {
+          "pickup_timestamp": "2025-05-25 18:52:29",
+          "pickup_hour": 18,
+          "source_id": 186,
+          "destination_id": 43,
+          "origin_label": "Penn Station/Madison Sq West (Manhattan)",
+          "destination_label": "Central Park (Manhattan)",
+          "fare_amount": 585.99,
+          "trip_distance_miles": 43281.91,
+          "eta_minutes": 29.77,
+          "speed_mph": 87242.37,
+          "fare_to_context_median_ratio": 37.56346153846154,
+          "context_median_fare": 15.6,
+          "context_iqr_fare": 4.199999999999999,
+          "anomaly_score": 0.351399,
+          "anomaly_type": "extreme_speed"
+        },
+        {
+          "pickup_timestamp": "2025-04-28 22:58:48",
+          "pickup_hour": 22,
+          "source_id": 186,
+          "destination_id": 228,
+          "origin_label": "Penn Station/Madison Sq West (Manhattan)",
+          "destination_label": "Sunset Park West (Brooklyn)",
+          "fare_amount": 633.11,
+          "trip_distance_miles": 35488.39,
+          "eta_minutes": 17.13,
+          "speed_mph": 124278.41,
+          "fare_to_context_median_ratio": 14.75780885780886,
+          "context_median_fare": 42.9,
+          "context_iqr_fare": 7.699999999999996,
+          "anomaly_score": 0.348145,
+          "anomaly_type": "extreme_speed"
+        },
+        {
+          "pickup_timestamp": "2025-03-09 00:34:23",
+          "pickup_hour": 0,
+          "source_id": 229,
+          "destination_id": 262,
+          "origin_label": "Sutton Place/Turtle Bay North (Manhattan)",
+          "destination_label": "Yorkville East (Manhattan)",
+          "fare_amount": 46263.88,
+          "trip_distance_miles": 1191.9,
+          "eta_minutes": 6.43,
+          "speed_mph": 11116.17,
+          "fare_to_context_median_ratio": 4626.388,
+          "context_median_fare": 10.0,
+          "context_iqr_fare": 1.3999999999999986,
+          "anomaly_score": 0.340397,
+          "anomaly_type": "extreme_speed"
+        },
+        {
+          "pickup_timestamp": "2025-11-29 15:10:59",
+          "pickup_hour": 15,
+          "source_id": 137,
+          "destination_id": 125,
+          "origin_label": "Kips Bay (Manhattan)",
+          "destination_label": "Hudson Sq (Manhattan)",
+          "fare_amount": 20.47,
+          "trip_distance_miles": 124392.67,
+          "eta_minutes": 111.8,
+          "speed_mph": 66758.14,
+          "fare_to_context_median_ratio": 0.965566037735849,
+          "context_median_fare": 21.2,
+          "context_iqr_fare": 9.100000000000001,
+          "anomaly_score": 0.331199,
+          "anomaly_type": "extreme_speed"
+        },
+        {
+          "pickup_timestamp": "2025-02-16 23:36:35",
+          "pickup_hour": 23,
+          "source_id": 130,
+          "destination_id": 265,
+          "origin_label": "Jamaica (Queens)",
+          "destination_label": "Unknown (Unknown)",
+          "fare_amount": 980.0,
+          "trip_distance_miles": 202.21,
+          "eta_minutes": 201.23,
+          "speed_mph": 60.29,
+          "fare_to_context_median_ratio": 11.238532110091743,
+          "context_median_fare": 87.2,
+          "context_iqr_fare": 47.8,
+          "anomaly_score": 0.3256,
+          "anomaly_type": "extreme_speed"
+        },
+        {
+          "pickup_timestamp": "2025-11-08 01:38:40",
+          "pickup_hour": 1,
+          "source_id": 244,
+          "destination_id": 265,
+          "origin_label": "Washington Heights South (Manhattan)",
+          "destination_label": "Unknown (Unknown)",
+          "fare_amount": 1452.7,
+          "trip_distance_miles": 211.94,
+          "eta_minutes": 207.22,
+          "speed_mph": 61.37,
+          "fare_to_context_median_ratio": 20.34593837535014,
+          "context_median_fare": 71.4,
+          "context_iqr_fare": 58.6,
+          "anomaly_score": 0.323066,
+          "anomaly_type": "extreme_speed"
+        }
+      ],
+      "output_csv": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/anomaly_artifacts/outputs/extreme_speed_anomalies.csv"
+    },
+    "fare_outlier": {
+      "total_anomaly_records": 253803,
+      "anomaly_percentage": 0.8198,
+      "hourly_variation": [
+        {
+          "pickup_hour": 0,
+          "hour_label": "00:00",
+          "total_records": 805456,
+          "anomaly_count": 8461,
+          "anomaly_percentage": 1.0505
+        },
+        {
+          "pickup_hour": 1,
+          "hour_label": "01:00",
+          "total_records": 521696,
+          "anomaly_count": 5300,
+          "anomaly_percentage": 1.0159
+        },
+        {
+          "pickup_hour": 2,
+          "hour_label": "02:00",
+          "total_records": 332201,
+          "anomaly_count": 4017,
+          "anomaly_percentage": 1.2092
+        },
+        {
+          "pickup_hour": 3,
+          "hour_label": "03:00",
+          "total_records": 213932,
+          "anomaly_count": 3835,
+          "anomaly_percentage": 1.7926
+        },
+        {
+          "pickup_hour": 4,
+          "hour_label": "04:00",
+          "total_records": 145176,
+          "anomaly_count": 4760,
+          "anomaly_percentage": 3.2788
+        },
+        {
+          "pickup_hour": 5,
+          "hour_label": "05:00",
+          "total_records": 178793,
+          "anomaly_count": 7076,
+          "anomaly_percentage": 3.9576
+        },
+        {
+          "pickup_hour": 6,
+          "hour_label": "06:00",
+          "total_records": 400215,
+          "anomaly_count": 12038,
+          "anomaly_percentage": 3.0079
+        },
+        {
+          "pickup_hour": 7,
+          "hour_label": "07:00",
+          "total_records": 801606,
+          "anomaly_count": 12464,
+          "anomaly_percentage": 1.5549
+        },
+        {
+          "pickup_hour": 8,
+          "hour_label": "08:00",
+          "total_records": 1113446,
+          "anomaly_count": 11906,
+          "anomaly_percentage": 1.0693
+        },
+        {
+          "pickup_hour": 9,
+          "hour_label": "09:00",
+          "total_records": 1311215,
+          "anomaly_count": 13493,
+          "anomaly_percentage": 1.029
+        },
+        {
+          "pickup_hour": 10,
+          "hour_label": "10:00",
+          "total_records": 1449550,
+          "anomaly_count": 12451,
+          "anomaly_percentage": 0.859
+        },
+        {
+          "pickup_hour": 11,
+          "hour_label": "11:00",
+          "total_records": 1561872,
+          "anomaly_count": 12003,
+          "anomaly_percentage": 0.7685
+        },
+        {
+          "pickup_hour": 12,
+          "hour_label": "12:00",
+          "total_records": 1692793,
+          "anomaly_count": 13349,
+          "anomaly_percentage": 0.7886
+        },
+        {
+          "pickup_hour": 13,
+          "hour_label": "13:00",
+          "total_records": 1770164,
+          "anomaly_count": 12961,
+          "anomaly_percentage": 0.7322
+        },
+        {
+          "pickup_hour": 14,
+          "hour_label": "14:00",
+          "total_records": 1899789,
+          "anomaly_count": 14218,
+          "anomaly_percentage": 0.7484
+        },
+        {
+          "pickup_hour": 15,
+          "hour_label": "15:00",
+          "total_records": 1964871,
+          "anomaly_count": 16166,
+          "anomaly_percentage": 0.8228
+        },
+        {
+          "pickup_hour": 16,
+          "hour_label": "16:00",
+          "total_records": 2015097,
+          "anomaly_count": 15984,
+          "anomaly_percentage": 0.7932
+        },
+        {
+          "pickup_hour": 17,
+          "hour_label": "17:00",
+          "total_records": 2177789,
+          "anomaly_count": 13094,
+          "anomaly_percentage": 0.6013
+        },
+        {
+          "pickup_hour": 18,
+          "hour_label": "18:00",
+          "total_records": 2225495,
+          "anomaly_count": 11520,
+          "anomaly_percentage": 0.5176
+        },
+        {
+          "pickup_hour": 19,
+          "hour_label": "19:00",
+          "total_records": 1962608,
+          "anomaly_count": 10107,
+          "anomaly_percentage": 0.515
+        },
+        {
+          "pickup_hour": 20,
+          "hour_label": "20:00",
+          "total_records": 1808451,
+          "anomaly_count": 9663,
+          "anomaly_percentage": 0.5343
+        },
+        {
+          "pickup_hour": 21,
+          "hour_label": "21:00",
+          "total_records": 1824773,
+          "anomaly_count": 9849,
+          "anomaly_percentage": 0.5397
+        },
+        {
+          "pickup_hour": 22,
+          "hour_label": "22:00",
+          "total_records": 1608798,
+          "anomaly_count": 9821,
+          "anomaly_percentage": 0.6105
+        },
+        {
+          "pickup_hour": 23,
+          "hour_label": "23:00",
+          "total_records": 1172059,
+          "anomaly_count": 9267,
+          "anomaly_percentage": 0.7907
+        }
+      ],
+      "top_od_pairs": [
+        {
+          "source_id": 132,
+          "destination_id": 265,
+          "origin": "JFK Airport (Queens)",
+          "destination": "Unknown (Unknown)",
+          "anomaly_frequency": 7198
+        },
+        {
+          "source_id": 138,
+          "destination_id": 265,
+          "origin": "LaGuardia Airport (Queens)",
+          "destination": "Unknown (Unknown)",
+          "anomaly_frequency": 2214
+        },
+        {
+          "source_id": 230,
+          "destination_id": 265,
+          "origin": "Times Sq/Theatre District (Manhattan)",
+          "destination": "Unknown (Unknown)",
+          "anomaly_frequency": 507
+        },
+        {
+          "source_id": 186,
+          "destination_id": 265,
+          "origin": "Penn Station/Madison Sq West (Manhattan)",
+          "destination": "Unknown (Unknown)",
+          "anomaly_frequency": 504
+        },
+        {
+          "source_id": 68,
+          "destination_id": 265,
+          "origin": "East Chelsea (Manhattan)",
+          "destination": "Unknown (Unknown)",
+          "anomaly_frequency": 467
+        },
+        {
+          "source_id": 48,
+          "destination_id": 265,
+          "origin": "Clinton East (Manhattan)",
+          "destination": "Unknown (Unknown)",
+          "anomaly_frequency": 464
+        },
+        {
+          "source_id": 70,
+          "destination_id": 265,
+          "origin": "East Elmhurst (Queens)",
+          "destination": "Unknown (Unknown)",
+          "anomaly_frequency": 424
+        },
+        {
+          "source_id": 132,
+          "destination_id": 10,
+          "origin": "JFK Airport (Queens)",
+          "destination": "Baisley Park (Queens)",
+          "anomaly_frequency": 371
+        },
+        {
+          "source_id": 229,
+          "destination_id": 265,
+          "origin": "Sutton Place/Turtle Bay North (Manhattan)",
+          "destination": "Unknown (Unknown)",
+          "anomaly_frequency": 337
+        },
+        {
+          "source_id": 70,
+          "destination_id": 138,
+          "origin": "East Elmhurst (Queens)",
+          "destination": "LaGuardia Airport (Queens)",
+          "anomaly_frequency": 330
+        }
+      ],
+      "top_10_records": [
+        {
+          "pickup_timestamp": "2025-02-21 17:28:43",
+          "pickup_hour": 17,
+          "source_id": 161,
+          "destination_id": 246,
+          "origin_label": "Midtown Center (Manhattan)",
+          "destination_label": "West Chelsea/Hudson Yards (Manhattan)",
+          "fare_amount": 132531.36,
+          "trip_distance_miles": 2.2,
+          "eta_minutes": 24.35,
+          "speed_mph": 5.42094455852156,
+          "fare_to_context_median_ratio": 7795.962,
+          "context_median_fare": 17.0,
+          "context_iqr_fare": 5.6,
+          "anomaly_score": 0.348197,
+          "anomaly_type": "fare_outlier"
+        },
+        {
+          "pickup_timestamp": "2025-06-11 14:41:03",
+          "pickup_hour": 14,
+          "source_id": 161,
+          "destination_id": 132,
+          "origin_label": "Midtown Center (Manhattan)",
+          "destination_label": "JFK Airport (Queens)",
+          "fare_amount": 325478.05,
+          "trip_distance_miles": 20.6,
+          "eta_minutes": 93.57,
+          "speed_mph": 13.20983256145351,
+          "fare_to_context_median_ratio": 4649.686,
+          "context_median_fare": 70.0,
+          "context_iqr_fare": 0.0,
+          "anomaly_score": 0.343705,
+          "anomaly_type": "fare_outlier"
+        },
+        {
+          "pickup_timestamp": "2025-09-02 16:01:28",
+          "pickup_hour": 16,
+          "source_id": 132,
+          "destination_id": 164,
+          "origin_label": "JFK Airport (Queens)",
+          "destination_label": "Midtown South (Manhattan)",
+          "fare_amount": 323800.27,
+          "trip_distance_miles": 11.8,
+          "eta_minutes": 89.93,
+          "speed_mph": 7.872498146775389,
+          "fare_to_context_median_ratio": 4625.718,
+          "context_median_fare": 70.0,
+          "context_iqr_fare": 0.0,
+          "anomaly_score": 0.343198,
+          "anomaly_type": "fare_outlier"
+        },
+        {
+          "pickup_timestamp": "2025-03-09 00:34:23",
+          "pickup_hour": 0,
+          "source_id": 229,
+          "destination_id": 262,
+          "origin_label": "Sutton Place/Turtle Bay North (Manhattan)",
+          "destination_label": "Yorkville East (Manhattan)",
+          "fare_amount": 46263.88,
+          "trip_distance_miles": 1191.9,
+          "eta_minutes": 6.43,
+          "speed_mph": 11116.165803108808,
+          "fare_to_context_median_ratio": 4626.388,
+          "context_median_fare": 10.0,
+          "context_iqr_fare": 1.4,
+          "anomaly_score": 0.336673,
+          "anomaly_type": "fare_outlier"
+        },
+        {
+          "pickup_timestamp": "2025-10-13 03:33:45",
+          "pickup_hour": 3,
+          "source_id": 216,
+          "destination_id": 197,
+          "origin_label": "South Ozone Park (Queens)",
+          "destination_label": "Richmond Hill (Queens)",
+          "fare_amount": 800.0,
+          "trip_distance_miles": 0.02,
+          "eta_minutes": 0.07,
+          "speed_mph": 18.0,
+          "fare_to_context_median_ratio": 70.796,
+          "context_median_fare": 11.3,
+          "context_iqr_fare": 6.2,
+          "anomaly_score": 0.333962,
+          "anomaly_type": "fare_outlier"
+        },
+        {
+          "pickup_timestamp": "2025-11-01 16:54:03",
+          "pickup_hour": 16,
+          "source_id": 131,
+          "destination_id": 101,
+          "origin_label": "Jamaica Estates (Queens)",
+          "destination_label": "Glen Oaks (Queens)",
+          "fare_amount": 500.0,
+          "trip_distance_miles": 0.06,
+          "eta_minutes": 0.08,
+          "speed_mph": 43.2,
+          "fare_to_context_median_ratio": 37.037,
+          "context_median_fare": 13.5,
+          "context_iqr_fare": 11.9,
+          "anomaly_score": 0.333535,
+          "anomaly_type": "fare_outlier"
+        },
+        {
+          "pickup_timestamp": "2025-04-27 21:01:56",
+          "pickup_hour": 21,
+          "source_id": 196,
+          "destination_id": 56,
+          "origin_label": "Rego Park (Queens)",
+          "destination_label": "Corona (Queens)",
+          "fare_amount": 666.33,
+          "trip_distance_miles": 0.04,
+          "eta_minutes": 0.13,
+          "speed_mph": 18.0,
+          "fare_to_context_median_ratio": 49.358,
+          "context_median_fare": 13.5,
+          "context_iqr_fare": 11.9,
+          "anomaly_score": 0.330237,
+          "anomaly_type": "fare_outlier"
+        },
+        {
+          "pickup_timestamp": "2025-01-09 23:10:48",
+          "pickup_hour": 23,
+          "source_id": 223,
+          "destination_id": 207,
+          "origin_label": "Steinway (Queens)",
+          "destination_label": "Saint Michaels Cemetery/Woodside (Queens)",
+          "fare_amount": 450.0,
+          "trip_distance_miles": 0.01,
+          "eta_minutes": 0.12,
+          "speed_mph": 5.142857142857143,
+          "fare_to_context_median_ratio": 33.333,
+          "context_median_fare": 13.5,
+          "context_iqr_fare": 11.9,
+          "anomaly_score": 0.327011,
+          "anomaly_type": "fare_outlier"
+        },
+        {
+          "pickup_timestamp": "2025-07-20 21:17:11",
+          "pickup_hour": 21,
+          "source_id": 97,
+          "destination_id": 49,
+          "origin_label": "Fort Greene (Brooklyn)",
+          "destination_label": "Clinton Hill (Brooklyn)",
+          "fare_amount": 400.0,
+          "trip_distance_miles": 0.04,
+          "eta_minutes": 0.05,
+          "speed_mph": 48.0,
+          "fare_to_context_median_ratio": 48.485,
+          "context_median_fare": 8.25,
+          "context_iqr_fare": 3.68,
+          "anomaly_score": 0.326164,
+          "anomaly_type": "fare_outlier"
+        },
+        {
+          "pickup_timestamp": "2025-09-14 14:40:21",
+          "pickup_hour": 14,
+          "source_id": 130,
+          "destination_id": 93,
+          "origin_label": "Jamaica (Queens)",
+          "destination_label": "Flushing Meadows-Corona Park (Queens)",
+          "fare_amount": 885.0,
+          "trip_distance_miles": 0.08,
+          "eta_minutes": 0.35,
+          "speed_mph": 13.714285714285715,
+          "fare_to_context_median_ratio": 36.875,
+          "context_median_fare": 24.0,
+          "context_iqr_fare": 0.0,
+          "anomaly_score": 0.321896,
+          "anomaly_type": "fare_outlier"
+        }
+      ],
+      "output_csv": "/Users/dhrumilraigagla/Projects/Geospatial_NYC_Taxi_Trips/data/anomaly_artifacts/outputs/fare_outlier_anomalies.csv"
+    }
+  },
+  "total_valid_records": 30957845
+}

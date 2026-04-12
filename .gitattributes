@@ -1,0 +1,5 @@
+data/forecasting_artifacts/models/* filter=lfs diff=lfs merge=lfs -text
+data/forecasting_artifacts/outputs/* filter=lfs diff=lfs merge=lfs -text
+data/clustering_artifacts/models/* filter=lfs diff=lfs merge=lfs -text
+data/anomaly_artifacts/models/* filter=lfs diff=lfs merge=lfs -text
+data/anomaly_artifacts/outputs/* filter=lfs diff=lfs merge=lfs -text
